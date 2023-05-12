@@ -13,5 +13,10 @@ jobs:
           github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           repository: ${{ vars.REPO }}
 
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: stable
+
       - name: Build flutter
         run: flutter build /project
