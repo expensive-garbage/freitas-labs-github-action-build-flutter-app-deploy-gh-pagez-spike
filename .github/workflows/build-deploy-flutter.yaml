@@ -14,9 +14,4 @@ jobs:
           repository: ${{ vars.REPO }}
 
       - name: Build flutter
-        uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          run: |
-            echo ${{ vars.REPO }}
-            flutter build /project
+        run: flutter build /project
