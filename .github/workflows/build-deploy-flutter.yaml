@@ -18,5 +18,15 @@ jobs:
         with:
           flutter-version: "3.10.0"
 
-      - name: Build flutter
-        run: flutter build /project
+      - name: Clean flutter
+        run: |
+          cd /project
+          flutter clean
+
+      - name: Get packages
+        run: flutter pub get
+
+      - name: Build app
+        run: |
+          cd /project
+          flutter build apk --release
