@@ -20,7 +20,7 @@ jobs:
 
       - name: Clean flutter
         run: |
-          cd /project
+          cd ${{ github.workspace }}/project
           flutter clean
 
       - name: Get packages
@@ -28,5 +28,5 @@ jobs:
 
       - name: Build app
         run: |
-          cd /project
+          cd ${{ github.workspace }}/project
           flutter build apk --release
