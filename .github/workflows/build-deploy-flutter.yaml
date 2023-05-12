@@ -24,7 +24,9 @@ jobs:
           flutter clean
 
       - name: Get packages
-        run: flutter pub get
+        run: |
+          cd ${{ github.workspace }}/project
+          flutter pub get
 
       - name: Build app
         run: |
