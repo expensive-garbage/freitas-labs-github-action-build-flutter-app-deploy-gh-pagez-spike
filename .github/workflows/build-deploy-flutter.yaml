@@ -28,27 +28,6 @@ jobs:
           cd ${{ github.workspace }}/project
           flutter pub get
 
-      # - name: Validate project structure
-      #   run: |
-      #     cd ${{ github.workspace }}/project
-          
-      #     if ! [[ -f "pubspec.yaml" ]]; then
-      #       echo "Project structure is not supported by Flutter or missing required files/directories."
-      #       echo "Creating a new Flutter project..."
-      #       mv pubspec.yaml pubspec.temp.yaml
-      #       flutter create .
-      #       mv pubspec.temp.yaml pubspec.yaml
-      #     fi
-
-      - name: Move code and assets to new project
-        run: |
-          cd ${{ github.workspace }}/project
-
-          if [ -d "lib" ] && [ -d "assets" ]; then
-            mv lib/* .
-            mv assets/* .
-          fi
-
       - name: Build web app
         run: |
           cd ${{ github.workspace }}/project
