@@ -47,8 +47,6 @@ jobs:
           git config user.name "${{ vars.NAME }}"
 
       - name: Deploy to github-pages
-        with:
-          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           cd ${{ github.workspace }}/project
           
