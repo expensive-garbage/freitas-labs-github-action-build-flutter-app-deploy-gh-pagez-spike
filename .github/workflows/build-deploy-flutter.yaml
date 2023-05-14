@@ -41,13 +41,15 @@ jobs:
       - name: Install @freitzzz/gh-pagez
         run: npm i @freitzzz/gh-pagez
 
+      - name: Set account's default identity
+        run: |
+          git config user.email "${{ vars.EMAIL }}"
+          git config user.name "${{ vars.NAME }}"
+
       - name: Deploy to github-pages
         with:
           github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           cd ${{ github.workspace }}/project
-
-          echo ${{ vars.REPO }}
-          echo https://github.com/${{ vars.REPO }}
           
           npx gh-pagez -d build -b gh-pages -r https://github.com/${{ vars.REPO }} -t true --nojekyll
