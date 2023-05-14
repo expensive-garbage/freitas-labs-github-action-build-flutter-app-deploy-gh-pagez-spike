@@ -45,12 +45,14 @@ jobs:
         run: |
           echo ${{ vars.EMAIL }}
           echo ${{ vars.NAME }}
-          
+
           git config user.email "${{ vars.EMAIL }}"
           git config user.name "${{ vars.NAME }}"
       #     git remote set-url origin "https://${{ vars.USERNAME }}:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ vars.REPO }}"
 
       - name: Deploy to github-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           cd ${{ github.workspace }}/project
           
