@@ -38,5 +38,8 @@ jobs:
         with:
           node-version: '14'
 
+      - name: Install @freitzzz/gh-pagez
+        run: npm i @freitzzz/gh-pagez
+
       - name: Deploy to github-pages
         run: npx gh-pagez -d build -b gh-pages -r https://github.com/${{ vars.REPO }} -t true --nojekyll
