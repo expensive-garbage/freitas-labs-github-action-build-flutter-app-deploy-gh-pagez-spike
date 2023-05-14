@@ -55,5 +55,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           cd ${{ github.workspace }}/project
-          
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${{ vars.REPO }}.git
           npx gh-pagez -d build -b gh-pages -r https://github.com/${{ vars.REPO }} -t true --nojekyll
