@@ -11,6 +11,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           repository: ${{ vars.REPO }}
 
       - name: Set up Flutter
@@ -43,9 +44,6 @@ jobs:
 
       - name: Set Git Config
         run: |
-          echo ${{ vars.EMAIL }}
-          echo ${{ vars.NAME }}
-
           git config user.email "${{ vars.EMAIL }}"
           git config user.name "${{ vars.NAME }}"
       #     git remote set-url origin "https://${{ vars.USERNAME }}:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ vars.REPO }}"
@@ -55,5 +53,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           cd ${{ github.workspace }}/project
-          git remote set-url origin https://git:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ vars.REPO }}.git
+          git remote set-url origin https://github.com/${{ vars.REPO }}.git
           npx gh-pagez -d build -b gh-pages -r https://github.com/${{ vars.REPO }} -t true --nojekyll
