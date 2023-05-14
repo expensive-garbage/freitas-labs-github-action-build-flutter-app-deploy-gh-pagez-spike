@@ -64,4 +64,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          publish_dir: ./project/build/web  # Modify this directory path based on your Flutter build output
+          publish_dir: ./project/build/web 
+          repository: ${{ vars.REPO }}
+          target_branch: gh-pages
