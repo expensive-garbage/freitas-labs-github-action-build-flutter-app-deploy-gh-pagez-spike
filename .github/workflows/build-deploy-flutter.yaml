@@ -32,7 +32,7 @@ jobs:
       - name: Build web app
         run: |
           cd ${{ github.workspace }}/project
-          flutter build web --release --base-href "/flutter-extended-image-crop-info-callback-spike"
+          flutter build web --release --base-href "/flutter-extended-image-crop-info-callback-spike/"
 
       # - name: Install Node.js and npm
       #   uses: actions/setup-node@v2
