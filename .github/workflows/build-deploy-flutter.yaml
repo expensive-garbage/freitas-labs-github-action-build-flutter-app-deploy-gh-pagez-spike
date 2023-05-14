@@ -41,11 +41,11 @@ jobs:
       - name: Install @freitzzz/gh-pagez
         run: npm i @freitzzz/gh-pagez
 
-      - name: Set Git Config
-        run: |
-          git config user.email "${{ vars.EMAIL }}"
-          git config user.name "${{ vars.NAME }}"
-          git remote set-url origin "https://${{ vars.USERNAME }}:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ vars.REPO }}"
+      # - name: Set Git Config
+      #   run: |
+      #     git config user.email "${{ vars.EMAIL }}"
+      #     git config user.name "${{ vars.NAME }}"
+      #     git remote set-url origin "https://${{ vars.USERNAME }}:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ vars.REPO }}"
 
       - name: Deploy to github-pages
         run: |
