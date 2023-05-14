@@ -36,7 +36,7 @@ jobs:
       - name: Install Node.js and npm
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '19'
 
       - name: Install @freitzzz/gh-pagez
         run: npm i @freitzzz/gh-pagez
@@ -48,4 +48,4 @@ jobs:
           echo ${{ vars.REPO }}
           echo https://github.com/${{ vars.REPO }}
           
-          npx gh-pagez -d build -b gh-pages -r https://github.com/expensive-garbage/flutter-extended-image-crop-info-callback-spike -t true --nojekyll
+          npx gh-pagez -d build -b gh-pages -r https://github.com/${{ vars.REPO }} -t true --nojekyll
