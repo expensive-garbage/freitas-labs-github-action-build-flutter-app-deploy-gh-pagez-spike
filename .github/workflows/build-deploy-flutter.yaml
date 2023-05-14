@@ -42,6 +42,9 @@ jobs:
       - name: Install @freitzzz/gh-pagez
         run: npm i @freitzzz/gh-pagez
 
+      - name: Install typedoc
+        run: npm i typedoc
+
       - name: Set Git Config
         run: |
           git config user.email "${{ vars.EMAIL }}"
@@ -54,5 +57,5 @@ jobs:
         run: |
           cd ${{ github.workspace }}/project
           git remote set-url origin https://github.com/${{ vars.REPO }}.git
-          npm run docs:publish -- -u "github-actions-bot <support+actions@github.com>"
+          typedoc && gh-pagez -d docs -t true -- -u "github-actions-bot <support+actions@github.com>"
           npx gh-pagez -d build -b gh-pages -r https://github.com/${{ vars.REPO }} -t true --nojekyll
